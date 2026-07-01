@@ -13,7 +13,10 @@
 ## STEP 2. 누수(Leakage) 컬럼 제거
 모델 학습 시 타깃 정보가 포함되지 않도록 누수 컬럼을 제거한다.
 
-- 타깃 컬럼 `Y_Quality` 제거
+- 타깃 컬럼 `Y_Quality`, `Y_Class` 제거
+  - `Y_Quality`: 회귀 모델의 학습 타깃
+  - `Y_Class`: `Y_Quality`에서 파생된 최종 품질 등급으로, 피처로 두면 정답을 그대로 입력하는 리키지가 됨
+  - 둘 다 X에서 분리해 각각 `y`, `y_class`로 보관
 - `PRODUCT_ID`, `TIMESTAMP`는 모델 입력 피처에서 제외
 - 단, `TIMESTAMP`는 시간 기반 검증을 위해 별도로 보관
 
